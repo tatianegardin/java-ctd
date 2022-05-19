@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Main {
     static int pontuacaoJogador = 0, pontuacaoComputador = 0;
 
-    static void pedraPapelTesoura(int jogador, int computador){
+    static void pedraPapelTesoura(int jogador, int computador, String nomeJogador){
+
 
         if(jogador == computador){
             jogador = 0;
@@ -17,56 +18,67 @@ public class Main {
                 System.out.println("Empate");
                 break;
             case 1: // pedra
-                if(computador == 2){ // papel
-                    System.out.println("Você escolheu Pedra \nComputador escolheu Papel\n\nComputador ganhou!");
+                if(computador == 2){ // papel, computador ganhou
+                    usuarioGanhou(false, nomeJogador, "pedra", "papel");
                     pontuacaoComputador++;
-                }else { // tesoura
-                    System.out.println("Você escolheu Pedra \nComputador escolheu tesoura\n\nJogador ganhou!");
+                }else { // tesoura, jogador ganha
+                    usuarioGanhou(true, nomeJogador, "pedra", "papel");
                     pontuacaoJogador++;
                 }
                 break;
             case 2: // papel
                 if (computador == 1){ //pedra
-                    System.out.println("Você escolheu Papel \nComputador escolheu Pedra\n\nJogador ganhou!");
+                    usuarioGanhou(true, nomeJogador, "papel", "pedra");
                     pontuacaoJogador++;
                 }else { // tesoura
-                    System.out.println("Você escolheu Pedra \nComputador escolheu tesoura\n\nComputador ganhou!");
+                    usuarioGanhou(false, nomeJogador, "papel", "tesoura");
                     pontuacaoComputador++;
                 }
                 break;
             case 3: // tesoura
                 if(computador == 1){ // pedra
-                    System.out.println("Você escolheu Tesoura \nComputador escolheu pedra\n\nComputador ganhou!");
+                    usuarioGanhou(false, nomeJogador, "tesoura", "pedra");
                     pontuacaoComputador++;
                 } else { //papel
-                    System.out.println("Você escolheu Tesoura \nComputador escolheu Papel\n\nJogador ganhou!");
+                    usuarioGanhou(true, nomeJogador, "tesoura", "papel");
                     pontuacaoJogador++;
                 }
                 break;
         }
         System.out.println();
-        System.out.println("Pontuação do jogador: " + pontuacaoJogador);
+        System.out.println("Pontuação " + nomeJogador + ": " + pontuacaoJogador);
         System.out.println("Pontuação computador: " + pontuacaoComputador);
         System.out.println();
     }
+
+    static void usuarioGanhou(boolean ganhou, String nomeJogador, String escolhaJogador, String escolhaComputador){
+        String mensagemPadrao = "Você escolheu " + escolhaJogador + "\nComputador escolheu "+ escolhaComputador +"\n\n";
+        if (ganhou){
+            System.out.println(mensagemPadrao + nomeJogador +" ganhou!");
+        } else {
+            System.out.println(mensagemPadrao +"Computador ganhou!");
+        }
+    }
+
     public static void main(String[] args) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int computador;
-        int jogador;
+        int computador, jogador;
+        String nomeJogador;
 
-
+        System.out.println("Digite seu nome");
+        nomeJogador = scanner.nextLine();
         while (true){
 
-            System.out.println("Escolha um valor: \n1-Pedra \n2-Papel \n3-Tesoura \n4-Para sair! ");
+            System.out.println("Olá " + nomeJogador + "!\n" +"Escolha um valor: \n1-Pedra \n2-Papel \n3-Tesoura \n4-Para sair! ");
             jogador = scanner.nextInt();
             computador = random.nextInt(3) +1;
 
             if(jogador == 4 ){
-                System.out.println("Até logo!");
+                System.out.println("Até logo " + nomeJogador + "!");
                 break;
             }else {
-                pedraPapelTesoura(jogador, computador);
+                pedraPapelTesoura(jogador, computador, nomeJogador);
             }
         }
     }
