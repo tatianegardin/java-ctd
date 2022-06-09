@@ -1,3 +1,5 @@
+package com.company;
+
 import com.company.Animal;
 import com.company.Cachorro;
 import com.company.Cavalo;
