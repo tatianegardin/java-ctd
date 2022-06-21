@@ -15,5 +15,10 @@ public class Main {
         System.out.println(pacPublico1);
         System.out.println(pacParticular);
 
+        pacParticular.agendarConsulta("21/06", "11h", "cardiologista");
+        pacParticular.agendarConsulta("22/06", "11h", "cardio");
+
+
+
     }
 }
