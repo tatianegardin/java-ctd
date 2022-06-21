@@ -4,6 +4,7 @@ public abstract class Paciente {
     private String nome, sobrenome, dataNascimento;
     private boolean primeiraConsulta;
 
+
     public Paciente(String nome, String sobrenome, String dataNascimento) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -22,7 +23,7 @@ public abstract class Paciente {
 
     public void agendarConsulta(String data, String horario, String especialidade){
         avaliacaoInicial();
-        Consulta consulta = new Consulta(data, horario, especialidade);
+        new Consulta(data, horario, especialidade);
         System.out.println("Consulta agendada com sucesso!");
     }
 
