@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-	    Paciente paciente=new Paciente("Juan","Perez","12345",new Date(10,5,2021));
+	    Paciente paciente=new Paciente("Juan","Perez","12345",new Date(2022,10,10));
         }
         catch (ExcecaoPersonalizada e){
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
 
     }

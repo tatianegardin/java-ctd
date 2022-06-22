@@ -15,9 +15,9 @@ public class Paciente  {
         this.nome=nome;
         this.sobrenome=sobrenome;
         dataAlta=null;
-        if (dataInternacao.before(hoje))
-            throw  new ExcecaoPersonalizada("Data invalida");
-            this.dataInternacao=dataInternacao;
+        if (dataInternacao.after(hoje)) {
+            throw new ExcecaoPersonalizada("Data da internação invalida");
+        }
     }
 
     public Date getDataInternacao() {
