@@ -15,6 +15,8 @@ public class Paciente  {
         this.nome=nome;
         this.sobrenome=sobrenome;
         dataAlta=null;
+        System.out.println(hoje);
+        System.out.println(dataInternacao);
         if (dataInternacao.after(hoje)) {
             throw new ExcecaoPersonalizada("Data da internação invalida");
         }
