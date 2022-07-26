@@ -7,11 +7,15 @@ public class Funcionario extends Pessoa{
 
 
     public Funcionario(String nome, String cpf, int registro, String email, double salario, int dias) {
-        super(nome, cpf, registro, email);
+        super(nome);
         this.salario = salario;
         this.diasTrabalhados = dias;
         this.beneficio = new Beneficio();
         this.beneficio.calculaTransporte(this.getDiasTrabalhados());
+    }
+
+    public Funcionario(String nome) {
+        super(nome);
     }
 
     public double desconto(){

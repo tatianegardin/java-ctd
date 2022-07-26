@@ -6,10 +6,14 @@ public class Aluno extends Pessoa{
     private int senha;
 
     public Aluno(String nome, String cpf, int registro, String email, double notaBolsa, double valorMensalidade, int senha) {
-        super(nome, cpf, registro, email);
+        super(nome);
         this.notaBolsa = notaBolsa;
         this.valorMensalidade = valorMensalidade;
         this.senha = senha;
+    }
+
+    public Aluno(String nomeAluno) {
+        super(nomeAluno);
     }
 
     public boolean autentica(String email, int senha){

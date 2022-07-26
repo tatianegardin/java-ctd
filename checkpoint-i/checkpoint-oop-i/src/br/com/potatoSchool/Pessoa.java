@@ -8,7 +8,7 @@ public abstract class Pessoa {
     private int registro;
     private String email;
 
-    public Pessoa(String nome, String cpf, int registro, String email) {
+    public Pessoa(String nome) {
         this.nome = nome;
         this.cpf = cpf;
         this.registro = registro;

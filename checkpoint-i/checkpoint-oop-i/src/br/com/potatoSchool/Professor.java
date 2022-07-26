@@ -1,11 +1,14 @@
 package br.com.potatoSchool;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Professor extends Funcionario {
     private int senha;
+    List<Aluno> listaAluno = new ArrayList<Aluno>();
 
-    public Professor(String nome, String cpf, int registro, String email, double salario, int dias, int senha) {
-        super(nome, cpf, registro, email, salario, dias);
-        this.senha = senha;
+    public Professor(String nome) {
+        super(nome);
     }
 
     public void editarPortal(String cpf, int senha){
@@ -21,6 +24,14 @@ public class Professor extends Funcionario {
             return true;
         }
         return false;
+    }
+
+    public void adicionaAluno(Aluno aluno){
+        listaAluno.add(aluno);
+    }
+
+    public List<Aluno> getListaAluno() {
+        return listaAluno;
     }
 
     @Override
